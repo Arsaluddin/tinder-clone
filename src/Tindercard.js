@@ -1,4 +1,4 @@
-import { SwipeableDrawer } from "@mui/material";
+// import { SwipeableDrawer } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./Tindercard.css";
 import TinderCard from "react-tinder-card";
@@ -6,15 +6,14 @@ import axios from './axios';
 
 const Tindercard = () => {
 
-     const [people,setPeople] = useState([
-       
-     ]);
+     const [people,setPeople] = useState([]);
 
      useEffect(()=> {
          async function fetchData() {
-            const req = await axios.get("/tinder/cards");
-
+            const req = await axios.get("http://localhost:5000/tinder/cards/");
+            console.log(req.data);
             setPeople(req.data);
+
          }
 
          fetchData();
